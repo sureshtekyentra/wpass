@@ -1,0 +1,74 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wpaasportal
+  namespace: wpdev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wpaasportal
+  template:
+    metadata:
+      labels:
+        app: wpaasportal
+    spec:
+      containers:
+      - name: wpaasportal
+        image: wordpress
+        ports:
+        - containerPort: 80
+        env:
+        #  - name: HOST
+        #    value: "wp-dev"
+          - name: WORDPRESS_DB_NAME
+            value: "wpaasportal"
+          - name: WORDPRESS_TABLE_PREFIX
+            value: "wp_"
+          - name: WORDPRESS_DB_HOST
+            value: "wpaasdb.cydwunev2mr4.us-west-2.rds.amazonaws.com"
+          - name: WORDPRESS_DB_USER
+            value: "wpadmin"
+          - name:  WORDPRESS_DB_PASSWORD
+            value: "wpadmin1234"
+
+   
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: wpaasportal
+  namespace: wpdev
+spec:
+  selector:
+    app: wpaasportal
+  ports:
+  - name: proxy
+    port: 80
+    targetPort: 80
+    protocol: TCP
+  type: LoadBalancer
+#  type: ClusterIP
+ 
+---
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: wpaasportal
+  namespace: wpdev
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: wpaasportal
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 65

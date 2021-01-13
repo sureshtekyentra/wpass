@@ -1,0 +1,127 @@
+# 1/ Project name -------------------------------------------------
+# Must be lower-case, no spaces and no invalid path chars.
+# Will be used also as the WP database name
+PROJECT_NAME=wpass
+WEB_ROOT=/usr/src/wordpress/
+
+# 2/ For wordpress auto-install and auto-configuration -------------------
+WORDPRESS_WEBSITE_TITLE="CAWeb Blog"
+WORDPRESS_DB_NAME=cawebdb2020
+WORDPRESS_TABLE_PREFIX=wp_
+WORDPRESS_DB_HOST=wpaasdb.cydwunev2mr4.us-west-2.rds.amazonaws.com
+WORDPRESS_DB_USER=wpadmin
+WORDPRESS_DB_PASSWORD=wpadmin1234
+WORDPRESS_LOCALE=en_US
+
+# URL
+WORDPRESS_WEBSITE_URL="http://cawebdemo.cawpass.org"
+WORDPRESS_WEBSITE_URL_WITHOUT_HTTP=cawebdemo.cawpass.org
+WORDPRESS_WEBSITE_POST_URL_STRUCTURE="/blog/%postname%/"
+
+# Website admin identification. Specify a strong password
+WORDPRESS_ADMIN_USER=wpassadmin
+WORDPRESS_ADMIN_PASSWORD=letmein@2020
+WORDPRESS_ADMIN_EMAIL=devsecops@state.ca.gov
+
+# 3/ Software versions -----------------------------------------------
+MARIADB_VERSION=latest
+PHPMYADMIN_VERSION=latest
+
+# 4/ Volumes on host -------------------------------------------------------
+WORDPRESS_DATA_DIR=./wp-content
+MULTI_SITE_INSTALL=true
+PMA_HOST=wpaasdb.cydwunev2mr4.us-west-2.rds.amazonaws.com
+WP_DEFAULT_THEME=CAWeb
+
+
+# 6 Re-organize Later ------------------------------------------------------
+
+# CAWeb General Options
+TEMPLATE_VER=5
+FAV_ICON=https://caweb.cdt.ca.gov/wp-content/uploads/sites/221/2017/06/CAWEB-FavIcon-32px.ico
+NAV_MENU_STYLE=dropdown
+COLORSCHEME=oceanside
+TITLE_DISPLAY=false
+STICKY_NAV=true
+MENU_HOME_LINK=false
+DISPLAY_POSTS_DATE=false
+X_UA_COMPATIBILITY=false
+FRONTPAGE_SEARCH=false
+
+# CAWeb Google Options
+SEARCH_ENGINE_ID=
+ANALYTICS_ID=
+META_ID=
+TRANSLATE_MODE=standard
+TRANSLATE_PAGE=
+TRANSLATE_PAGE_NEW_WINDOW=true
+TRANSLATE_ICON=globe
+
+# CAWeb Page Header Options
+ORG_LOGO=https://caweb.cdt.ca.gov/wp-content/uploads/sites/221/2017/12/CAWEB_PUB_Logo-257x90.jpg
+ORG_LOGO_ALT_TEXT=CAWeb Logo
+
+# CAWeb Utility Header Options
+CONTACT_US_PAGE=http://example.com
+GEO_LOCATOR=false
+UTILITY_HOME_LINK=true
+UTILITY_LINK1_ENABLED=
+UTILITY_LINK1_LABEL=
+UTILITY_LINK1_URL=
+UTILITY_LINK1_NEW_WINDOW=true
+UTILITY_LINK2_ENABLED=false
+UTILITY_LINK2_LABEL=
+UTILITY_LINK2_URL=
+UTILITY_LINK2_NEW_WINDOW=true
+UTILITY_LINK3_ENABLED=false
+UTILITY_LINK3_LABEL=
+UTILITY_LINK3_URL=
+UTILITY_LINK3_NEW_WINDOW=true
+
+# Leaving this blank will download the latest release
+# https://github.com/CA-CODE-Works/CAWeb/releases/latest
+CAWEB_VER=
+
+# This will create the CAWeb Sample Module Pages/Posts
+CAWEB_PRODUCT_TOUR=true
+
+# If this is blank CAWeb will always be downloaded from
+# https://github.com/CA-CODE-Works/CAWeb
+# otherwise CAWeb will be cloned from
+# https://github.com/<CAWEB_GIT_USER>/CAWeb
+# if CAWEB_VER is not blank the cloned repo
+# will checkout the CAWEB_VER Branch
+CAWEB_GIT_USER=
+CAWEB_PRIVATE_REPO=
+CAWEB_ACCESS_TOKEN=
+BUILD=caweb
+
+HEADER_MENU_NAME=Main Menu
+HEADER_MENU=pages/remediation.txt
+HEADER_MENU_ICONS=caweb
+
+FOOTER_MENU_NAME=Footer Menu
+FOOTER_MENU=pages/remediation.txt
+FOOTER_MENU_ICONS=caweb
+
+# ElegantThemes Account Username
+ET_USERNAME=CAWebConsulting
+
+# If downloading from Github, add Github Account Username
+ET_GIT_USER=
+# If downloading from Github, add branch or leave it blank to download master branch
+ET_GIT_BRANCH=
+
+# if using, ElegantThemes Account Username use API Key
+# if using, Github Account Username use Personal Access Token
+# if using, Github Account Username and repo is public leave blank
+ET_API_KEY=559bcc65afc7d7bc57953e38e8e2e71bd9b0092f
+
+# Divi Builder Product Tour
+PRODUCT_TOUR=false
+
+# Enable The Latest Divi Builder Experience
+NEW_BUILDER_EXPERIENCE=false
+
+# Enable Classic Editor
+CLASSIC_EDITOR=false
