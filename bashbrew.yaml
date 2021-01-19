@@ -1,9 +1,9 @@
 apiVersion: apps/v1
-kind:Deployment
+kind: Deployment
 metadata:
   name: bashbrew
 spec:
-  replicas: 3
+  replicas: 2
   template:
     metadata:
       labels:
