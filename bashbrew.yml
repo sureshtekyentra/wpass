@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: bashbrew
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: bashbrew
+    spec:
+      containers:
+      - image: wpass.azurecr.io/bashbrew:latest
+        name: bashbrew
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bashbrew
+spec:
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  selector:
+    app: bashbrew
+  type: LoadBalancer
